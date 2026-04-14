@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Suppression de compte — Urgences 18</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background-color: #0d1117;
+      color: #e6edf3;
+      line-height: 1.7;
+      padding: 40px 20px;
+    }
+
+    .container {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 48px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid #30363d;
+    }
+
+    header h1 {
+      font-size: 28px;
+      font-weight: 700;
+      color: #c0392b;
+      margin-bottom: 8px;
+    }
+
+    header p {
+      color: #8b949e;
+      font-size: 14px;
+    }
+
+    section {
+      margin-bottom: 40px;
+    }
+
+    h2 {
+      font-size: 18px;
+      font-weight: 600;
+      color: #c0392b;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #21262d;
+    }
+
+    p {
+      color: #adbac7;
+      margin-bottom: 12px;
+      font-size: 15px;
+    }
+
+    ul {
+      list-style: none;
+      margin-bottom: 16px;
+      padding-left: 0;
+    }
+
+    ul li {
+      color: #adbac7;
+      font-size: 15px;
+      padding: 6px 0 6px 24px;
+      position: relative;
+    }
+
+    ul li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: #c0392b;
+    }
+
+    .steps {
+      counter-reset: step;
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 16px;
+    }
+
+    .steps li {
+      counter-increment: step;
+      color: #adbac7;
+      font-size: 15px;
+      padding: 10px 0 10px 48px;
+      position: relative;
+      border-bottom: 1px solid #21262d;
+    }
+
+    .steps li:last-child {
+      border-bottom: none;
+    }
+
+    .steps li::before {
+      content: counter(step);
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 28px;
+      height: 28px;
+      background-color: #c0392b22;
+      color: #c0392b;
+      border: 1px solid #c0392b55;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 13px;
+      text-align: center;
+      line-height: 28px;
+    }
+
+    .highlight {
+      background-color: #161b22;
+      border-left: 3px solid #c0392b;
+      border-radius: 4px;
+      padding: 16px 20px;
+      margin: 16px 0;
+    }
+
+    .highlight p {
+      margin-bottom: 0;
+    }
+
+    .highlight-warning {
+      background-color: #2d1f00;
+      border-left: 3px solid #f39c12;
+      border-radius: 4px;
+      padding: 16px 20px;
+      margin: 16px 0;
+    }
+
+    .highlight-warning p {
+      margin-bottom: 0;
+      color: #f39c12;
+    }
+
+    .email-btn {
+      display: inline-block;
+      background-color: #c0392b;
+      color: #ffffff;
+      padding: 14px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 16px;
+      margin-top: 8px;
+    }
+
+    .email-btn:hover {
+      background-color: #a93226;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0;
+      font-size: 14px;
+    }
+
+    th {
+      background-color: #161b22;
+      color: #c0392b;
+      font-weight: 600;
+      padding: 10px 14px;
+      text-align: left;
+      border: 1px solid #30363d;
+    }
+
+    td {
+      padding: 10px 14px;
+      border: 1px solid #21262d;
+      color: #adbac7;
+    }
+
+    tr:nth-child(even) td { background-color: #0d1117; }
+    tr:nth-child(odd) td { background-color: #161b22; }
+
+    .tag-supprime {
+      display: inline-block;
+      background-color: #2d0f0f;
+      color: #e74c3c;
+      border: 1px solid #e74c3c55;
+      border-radius: 4px;
+      padding: 1px 8px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    .tag-conserve {
+      display: inline-block;
+      background-color: #1c2a1c;
+      color: #2ea043;
+      border: 1px solid #2ea04355;
+      border-radius: 4px;
+      padding: 1px 8px;
+      font-size: 12px;
+      font-weight: 600;
+    }
+
+    a {
+      color: #c0392b;
+    }
+
+    footer {
+      margin-top: 60px;
+      padding-top: 24px;
+      border-top: 1px solid #30363d;
+      text-align: center;
+      color: #8b949e;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <header>
+      <h1>Urgences 18</h1>
+      <p>Suppression de compte et des données</p>
+      <p>Application Android — fr.urgences18.simulateur</p>
+    </header>
+
+    <section>
+      <h2>Comment supprimer votre compte</h2>
+      <p>
+        Vous pouvez demander la suppression de votre compte et de toutes les données
+        associées à tout moment, sans frais. Deux méthodes sont disponibles :
+      </p>
+
+      <h2 style="margin-top: 24px; font-size: 15px; color: #cdd9e5; border: none;">Méthode 1 — Par e-mail (recommandée)</h2>
+      <p>Envoyez un e-mail à l'adresse suivante avec l'objet <strong>"Suppression de compte"</strong> :</p>
+      <div class="highlight">
+        <p>
+          <a href="mailto:hugorubin7@gmail.com?subject=Suppression de compte Urgences 18">
+            hugorubin7@gmail.com
+          </a>
+        </p>
+      </div>
+      <a href="mailto:hugorubin7@gmail.com?subject=Suppression de compte Urgences 18&body=Bonjour,%0D%0A%0D%0AJe souhaite supprimer mon compte Urgences 18 ainsi que toutes les données associées.%0D%0A%0D%0AAdresse e-mail du compte : %0D%0A%0D%0AMerci." class="email-btn">
+        ✉️ Envoyer la demande par e-mail
+      </a>
+
+      <h2 style="margin-top: 32px; font-size: 15px; color: #cdd9e5; border: none;">Méthode 2 — Depuis l'application</h2>
+      <ol class="steps">
+        <li>Ouvrez l'application <strong>Urgences 18</strong></li>
+        <li>Allez dans l'onglet <strong>Profil</strong></li>
+        <li>Appuyez sur <strong>Paramètres</strong></li>
+        <li>Appuyez sur <strong>Se déconnecter</strong>, puis contactez-nous par e-mail pour finaliser la suppression</li>
+      </ol>
+    </section>
+
+    <section>
+      <h2>Données supprimées et conservées</h2>
+      <p>
+        Lors de la suppression de votre compte, voici le traitement appliqué à chaque type de donnée :
+      </p>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Type de donnée</th>
+            <th>Traitement</th>
+            <th>Délai</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Adresse e-mail (Firebase Auth)</td>
+            <td><span class="tag-supprime">Supprimée</span></td>
+            <td>Immédiat</td>
+          </tr>
+          <tr>
+            <td>Identifiant utilisateur (UID)</td>
+            <td><span class="tag-supprime">Supprimé</span></td>
+            <td>Immédiat</td>
+          </tr>
+          <tr>
+            <td>Données de simulation (scores, interventions, stats)</td>
+            <td><span class="tag-supprime">Supprimées</span></td>
+            <td>Sous 30 jours</td>
+          </tr>
+          <tr>
+            <td>Token FCM (notifications)</td>
+            <td><span class="tag-supprime">Supprimé</span></td>
+            <td>Immédiat</td>
+          </tr>
+          <tr>
+            <td>Données locales sur l'appareil</td>
+            <td><span class="tag-supprime">Supprimées</span> à la désinstallation</td>
+            <td>À la désinstallation</td>
+          </tr>
+          <tr>
+            <td>Logs techniques anonymes (Firebase)</td>
+            <td><span class="tag-conserve">Conservés</span> de façon anonyme</td>
+            <td>90 jours max (politique Firebase)</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="highlight-warning">
+        <p>
+          ⚠️ Les logs techniques conservés sont entièrement anonymes et ne permettent
+          pas de vous identifier. Ils sont automatiquement supprimés par Firebase après 90 jours.
+        </p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Délai de traitement</h2>
+      <p>
+        Nous traitons toutes les demandes de suppression dans un délai maximum de
+        <strong>30 jours</strong> suivant la réception de votre demande.
+        Vous recevrez une confirmation par e-mail une fois la suppression effectuée.
+      </p>
+    </section>
+
+    <section>
+      <h2>Contact</h2>
+      <p>Pour toute question concernant vos données :</p>
+      <div class="highlight">
+        <p>
+          <a href="mailto:hugorubin7@gmail.com">hugorubin7@gmail.com</a>
+        </p>
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2026 Urgences 18 — Hugo Rubin. Tous droits réservés.</p>
+      <p style="margin-top: 8px;">
+        <a href="https://hugorubin7.github.io/urgences18-privacy/">Politique de confidentialité</a>
+      </p>
+    </footer>
+
+  </div>
+</body>
+</html>
